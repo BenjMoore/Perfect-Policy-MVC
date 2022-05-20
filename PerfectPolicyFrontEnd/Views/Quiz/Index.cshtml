@@ -1,0 +1,75 @@
+﻿@model IEnumerable<PerfectPolicyFrontEnd.Models.QuizModels.Quiz>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+
+<span>Name: </span> @ViewBag.CompanyName
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QuizID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Topic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Creator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassingPercentage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuizID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Topic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Creator)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassingPercentage)
+            </td>
+            <td>
+                @Html.ActionLink("Question", "QuestionsForQuiz", "Question", new { id = item.QuizID }, new { @class = "btn btn-primary" })
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.QuizID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.QuizID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.QuizID })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

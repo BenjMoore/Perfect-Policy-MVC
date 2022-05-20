@@ -1,0 +1,35 @@
+﻿@model PerfectPolicyFrontEnd.Models.Company
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+</div>
+
+@using (Html.BeginForm("Filter", "Quiz", FormMethod.Post))
+{
+    <form asp-action="Filter" asp-controller="Quiz">
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.CompanyName)
+        </div>
+
+        <br />
+        <div class="form-group">
+            <span class="field-validation-error text-danger"
+                  data-valmsg-for="CompanyName"
+                  data-valmsg-replace="true">The Company Name is required.</span>
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-primary"/>
+        </div>
+    </form>
+
+}
+
+<script src="~/Scripts/jquery.validate.min.js"></script>

@@ -1,0 +1,18 @@
+﻿
+<div><canvas id="barChart"></canvas></div>
+
+@{ ChartJSCore.Models.Chart chart = (ChartJSCore.Models.Chart)ViewData["chart"];}
+
+<script src="~/lib/Chart.js/chart.min.js"></script>
+
+<script>
+    @Html.Raw(chart.CreateChartCode("barChart"))
+</script>
+
+@Html.ActionLink(
+         linkText: "Export CSV",
+         controllerName: "Report",
+         actionName: "ExportData",
+         routeValues: null,
+         htmlAttributes: new { @class = "btn btn-warning" }
+     )

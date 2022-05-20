@@ -1,0 +1,59 @@
+﻿@model IEnumerable<PerfectPolicyFrontEnd.Models.QuestionModels.Question>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionTopic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.quiz.Title)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            @Html.HiddenFor(modelItem => item.QuestionID)
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionTopic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionImage)
+            </td>
+
+            <td>
+                @Html.ActionLink(item.quiz.Title, "Details", "Quiz", new { id = item.quiz.QuizID })
+
+            </td>
+            <td>
+                @Html.ActionLink("Option", "OptionsForQuestion", "Option", new { id = item.QuestionID }, new { @class = "btn btn-primary" })
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.QuestionID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.QuestionID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.QuestionID })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<PerfectPolicyFrontEnd.Models.OptionModels.Option>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OptionID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OptionText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OptionOrderByLetter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OptionOrderByNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Answer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OptionID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OptionText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OptionOrderByLetter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OptionOrderByNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Answer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.OptionID}) |
+                @Html.ActionLink("Details", "Details", new {  id=item.OptionID  }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.OptionID  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
