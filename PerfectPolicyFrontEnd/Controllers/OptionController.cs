@@ -86,9 +86,7 @@ namespace PerfectPolicyFrontEnd.Controllers
             {
                 Option createdOption = new Option()
                 {
-                    OptionText = option.OptionText,
-                    OptionOrderByLetter = option.OptionOrderByLetter,
-                    OptionOrderByNumber = option.OptionOrderByNumber,
+                    OptionText = option.OptionText,                  
                     Answer = option.Answer,
                     QuestionID = option.QuestionID
                 };
